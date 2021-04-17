@@ -309,7 +309,6 @@ var cover = {
 	btn_play: play_img,
     nocover_img: gdi.Image(theme_img_path+"\\no_cover.png"),
     stream_img: gdi.Image(theme_img_path+"\\stream_icon.png"),
-	marginBottom:30,
     masks: window.GetProperty("COVER album art masks (for disk cache)","*front*.*;*cover*.*;*folder*.*;*.*"),
 };
 var cover_path = new RegExp("(artwork)|(cover)|(scan)|(image)");
@@ -1415,11 +1414,11 @@ oShowList = function(parentPanelName) {
 			this.paddingTop = g_fsize*5;
 			this.paddingBot = 35;
 		} else {
-			this.marginTop = 20;
-			this.marginBot = 15;
+			this.marginTop = 5;
+			this.marginBot = 6;
 			this.coverMarginTop = 35;
-			this.paddingTop = g_fsize*5+22;
-			this.paddingBot = 12;
+			this.paddingTop = g_fsize*5;
+			this.paddingBot = 28;
 		}
 		this.margins_plus_paddings = this.paddingTop + this.paddingBot + (this.marginTop+this.marginBot);
 	}
@@ -4297,11 +4296,13 @@ oBrowser = function(name) {
 			this.marginTop = 0;
 			this.marginBot = 0;
 			this.CoverMarginTop = 0;
+			this.CoverMarginBot = 0;
 		} else {
 			// set margins betweens album stamps
 			this.marginTop = 0;
-			this.marginBot = 2;
+			this.marginBot = 0;
 			this.CoverMarginTop = 15;
+			this.CoverMarginBot = 30;
 		}
 	}
 	this.on_init();
@@ -4330,7 +4331,7 @@ oBrowser = function(name) {
 			this.marginLR = Math.round((this.w - this.coverRealWith * this.totalColumns) / (this.totalColumns + 1));
 			this.thumbnailWidth = this.coverRealWith + this.marginLR;
 			this.marginLR = Math.round(this.marginLR / 2);
-			this.rowHeight = g_fsize*2 + this.coverRealWith + cover.marginBottom;
+			this.rowHeight = this.CoverMarginTop + g_fsize*2 + this.coverRealWith + this.CoverMarginBot;
 		}
 		
 		this.coverHalfWidth = Math.round(this.coverRealWith / 2);
