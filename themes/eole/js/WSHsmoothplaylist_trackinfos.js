@@ -3147,20 +3147,8 @@ oBrowser = function(name) {
 
 												};
 											} else {
-												gr.FillGradRect(ax+25-properties.track_gradient_size, ay, (properties.track_gradient_size>current_size+6)?current_size+6:properties.track_gradient_size, 1, 0, colors.progressbar_bg_off, colors.progressbar, 1.0); //grad top
-												gr.FillSolidRect(ax+25-properties.track_gradient_size, ay,1,1,colors.progressbar_bg_off)  // 1px bug fix
-												gr.FillSolidRect(ax+25, ay, current_size+12-19, 1, colors.progressbar); //line top
-
-												gr.FillGradRect(ax+25-properties.track_gradient_size, ay+1, (properties.track_gradient_size>current_size+6)?current_size+6:properties.track_gradient_size, ah-2, 0, colors.progressbar_bg_off, colors.progressbar_bg_on, 1.0); //grad main bg
-												gr.FillSolidRect(ax+25, ay+1, current_size+11-19, ah-2, colors.progressbar_bg_on); //main bg
-
-												gr.FillGradRect(ax+25-properties.track_gradient_size, ay-1+ah, (properties.track_gradient_size>current_size+6)?current_size+6:properties.track_gradient_size, 1, 0, colors.progressbar_bg_off, colors.progressbar, 1.0); //grad bottom
-												gr.FillSolidRect(ax+25-properties.track_gradient_size, ay-1+ah,1,1,colors.progressbar_bg_off) // 1px bug fix
-												gr.FillSolidRect(ax+25, ay-1+ah, current_size+12-19, 1, colors.progressbar); //line bottom
-												gr.FillSolidRect(ax+current_size+17, ay+1, 1, ah-2, colors.progressbar);	//vertical line
-												if(t_selected) gr.FillSolidRect(ax+current_size+17, ay+1, 1, ah-2, colors.grad_line); //vertical line when selected
-												gr.FillSolidRect(ax+current_size+18, ay+1, 2, ah+1, colors.progressbar_shadow);	//vertical shadow
-												gr.FillSolidRect(ax+25-properties.track_gradient_size, ay+ah, current_size-5+properties.track_gradient_size, 2, colors.progressbar_shadow);	//horizontal shadow
+												gr.FillGradRect(ax+25-properties.track_gradient_size, ay, (properties.track_gradient_size>current_size+6)?current_size+6:properties.track_gradient_size, ah, 0, colors.progressbar_bg_off, colors.progressbar_bg_on, 1.0); //grad main bg
+												gr.FillSolidRect(ax+25, ay, current_size+11-19, ah, colors.progressbar_bg_on); //main bg
 											}
 										}
                                         // rating Stars
