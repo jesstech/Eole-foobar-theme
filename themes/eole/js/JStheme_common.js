@@ -763,7 +763,7 @@ function fb_play_from_playing(offset){
 
 // Tooltips ---------------------------------------------------------------
 oTooltip = function (varName) {
-	this.tooltip  = window.CreateTooltip();
+	this.tooltip  = window.CreateTooltip("Segoe UI", 16);
 	this.tooltip.TrackActivate = true;
 	this.showTimer = false;
 	this.activated = false;
