@@ -1045,14 +1045,14 @@ oRow = function(metadb,itemIndex) {
 
 		if(this.tracknumber=="NaN") this.tracknumber="?";
 
-		if(this.tracknumber_w==0) this.tracknumber_w = gr.CalcTextWidth(this.discnumber+this.tracknumber, g_font.normal)+22;
-		if(!isPlaying) gr.GdiDrawText(this.discnumber+this.tracknumber, g_font.normal, g_showlist.colorSchemeTextFaded, this.x-2, text_y, this.tracknumber_w, text_height, DT_RIGHT | DT_VCENTER | DT_CALCRECT | DT_END_ELLIPSIS | DT_NOPREFIX);
+		if(this.tracknumber_w==0) this.tracknumber_w = gr.CalcTextWidth(this.discnumber+this.tracknumber, g_font.bold)+22;
+		if(!isPlaying) gr.GdiDrawText(this.discnumber+this.tracknumber, g_font.bold, g_showlist.colorSchemeTextFaded, this.x-2, text_y, this.tracknumber_w, text_height, DT_RIGHT | DT_VCENTER | DT_CALCRECT | DT_END_ELLIPSIS | DT_NOPREFIX);
 
 		var tx = this.x + this.tracknumber_w + 10;
 		var tw = this.w - this.tracknumber_w - length_w - (this.rating_length==0?0:this.rating_length+10)
 		var tw2 = this.w - this.tracknumber_w - length_w;
-        gr.GdiDrawText(this.title, g_font.normal, g_showlist.colorSchemeText, tx, text_y, tw, text_height, DT_LEFT | DT_VCENTER | DT_CALCRECT | DT_END_ELLIPSIS | DT_NOPREFIX);
-		if(this.title_length==0) this.title_length = gr.CalcTextWidth(this.title, g_font.normal);
+        gr.GdiDrawText(this.title, g_font.bold, g_showlist.colorSchemeText, tx, text_y, tw, text_height, DT_LEFT | DT_VCENTER | DT_CALCRECT | DT_END_ELLIPSIS | DT_NOPREFIX);
+		if(this.title_length==0) this.title_length = gr.CalcTextWidth(this.title, g_font.bold);
 
 		if(this.artist_text!="" && !properties.show2lines){
 			gr.GdiDrawText(" - "+this.artist_text, g_font.italic, g_showlist.colorSchemeTextFaded, tx + this.title_length, text_y, tw - this.title_length, text_height, DT_LEFT | DT_VCENTER | DT_CALCRECT | DT_END_ELLIPSIS | DT_NOPREFIX);
@@ -1484,9 +1484,11 @@ oShowList = function(parentPanelName) {
 			this.progressbar_color_bg_on = HSL2RGB(new_H, Math.min(new_S*0.35,100), new_L+13, "RGB");
 		}
 		if(this.light_bg) {
+			this.colorSchemeText      = HSL2RGB(new_H, Math.min(new_S*0.75,255), Math.min(20,new_L), "RGB");
 			this.colorSchemeTextFaded = HSL2RGB(new_H, Math.min(new_S*0.55,50), Math.min(30,new_L), "RGB");
 		} else {
-			this.colorSchemeTextFaded = HSL2RGB(new_H, (new_L<10?Math.min(new_S*new_L/100,30):Math.min(new_S*0.65,15)), Math.max(70,new_L), "RGB");
+			this.colorSchemeText      = HSL2RGB(new_H, (new_L<10?Math.min(new_S*new_L/100,80):Math.min(new_S*0.75,100)), Math.max(80,new_L), "RGB");
+			this.colorSchemeTextFaded = HSL2RGB(new_H, (new_L<10?Math.min(new_S*new_L/100,30):Math.min(new_S*0.55,15)), Math.max(70,new_L), "RGB");
 			//Math.min(new_S*new_L/100,30)
 		}
 		this.getColorSchemeFromImageDone = true;
