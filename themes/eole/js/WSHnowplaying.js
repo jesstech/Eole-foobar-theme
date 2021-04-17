@@ -37,9 +37,9 @@ if(properties.single_click_action>1) properties.single_click_action=1;
 
 var g_wallpaperImg = null;
 var update_wallpaper = false;
-var track_infos_height = 85;
+var track_infos_height = 95;
 var rating_height = 12;
-var track_infos_margin_top = 0;
+var track_infos_margin_top = 5;
 var visu_margin_left = 0;
 var g_genre_cache = null;
 var cover_path="";
@@ -1542,24 +1542,24 @@ function oInfos() {
 		var double_row = (properties.doubleRowText && this.txt_line3 !="" && this.txt_line2 !="");
 
 		if(this.line1_width<0) {
-			this.line1_width = gr.CalcTextWidth(this.txt_line1, g_font.italicplus5);
+			this.line1_width = gr.CalcTextWidth(this.txt_line1, g_font.italicplus4);
 			this.tooltip_line1 = (this.line1_width>this.txt_width);
 		}
-		gr.GdiDrawText(this.txt_line1, g_font.italicplus5, colors.normal_txt, this.x, this.y + (properties.showRating ? rbutton[0].height-10 : 5) + text_y_adj + (double_row?0:2), this.txt_width, 34, DT_CENTER | DT_VCENTER | DT_CALCRECT | DT_NOPREFIX | DT_END_ELLIPSIS);
+		gr.GdiDrawText(this.txt_line1, g_font.italicplus4, colors.normal_txt, this.x, this.y + (properties.showRating ? rbutton[0].height-14 : 5) + text_y_adj + (double_row?0:2), this.txt_width, 34, DT_CENTER | DT_VCENTER | DT_CALCRECT | DT_NOPREFIX | DT_END_ELLIPSIS);
 
 		var line2 = ((this.txt_line2 !="" && this.show_info) || double_row) ? this.txt_line2 : this.txt_line3;
 		if(this.line2_width<0) {
 			this.line2_width = gr.CalcTextWidth(line2, g_font.min1);
 			this.tooltip_line2 = (this.line2_width>this.txt_width);
 		}
-		gr.GdiDrawText(line2, g_font.min1, colors.faded_txt, this.x, this.y+(double_row?29:37)+text_y_adj, this.txt_width, 30, DT_CENTER | DT_VCENTER | DT_CALCRECT | DT_NOPREFIX | DT_END_ELLIPSIS);
+		gr.GdiDrawText(line2, g_font.min1, colors.faded_txt, this.x, this.y+(double_row?32:37)+text_y_adj, this.txt_width, 30, DT_CENTER | DT_VCENTER | DT_CALCRECT | DT_NOPREFIX | DT_END_ELLIPSIS);
 
 		if(double_row) {
 			if(this.line3_width<0) {
-				this.line3_width = gr.CalcTextWidth(this.txt_line3, g_font.min2);
+				this.line3_width = gr.CalcTextWidth(this.txt_line3, g_font.min4);
 				this.tooltip_line3 = (this.line3_width>this.txt_width);
 			}
-			gr.GdiDrawText(this.txt_line3, g_font.min2, colors.faded_txt, this.x, this.y+43+text_y_adj, this.txt_width, 30, DT_CENTER | DT_VCENTER | DT_CALCRECT | DT_NOPREFIX | DT_END_ELLIPSIS);
+			gr.GdiDrawText(this.txt_line3, g_font.min4, colors.faded_txt, this.x, this.y+52+text_y_adj, this.txt_width, 30, DT_CENTER | DT_VCENTER | DT_CALCRECT | DT_NOPREFIX | DT_END_ELLIPSIS);
 		}
     };
     this.onMouse = function (state, x, y, m) {
