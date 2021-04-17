@@ -32,11 +32,11 @@ g_tfo = {
 	rating_album: fb.TitleFormat("%rating_album%"),
 	title: fb.TitleFormat("$if2(%title%,)"),
 	artist: fb.TitleFormat("$if2(%artist%,)"),
-	album: fb.TitleFormat("$if(%album%,  |  %album%,)"),
+	album: fb.TitleFormat("$if(%album%, - %album%,)"),
 	codec: fb.TitleFormat("%codec%"),
 	playcount: fb.TitleFormat("$if2(%play_count%,0)"),
-	bitrate: fb.TitleFormat("$if(%codec_profile%, | %codec_profile% | %bitrate%,  | %bitrate%)"),
-	allinfos: fb.TitleFormat((globalProperties.use_ratings_file_tags ? "$meta(rating)" : "%rating%") + " ^^ $if2(%title%,) ^^ $if2(%artist%,) ^^ $if(%album%,  |  %album%,) ^^ $if2(%date%,?) ^^ %codec% ^^ $if2(%play_count%,0) ^^ $if(%codec_profile%, | %codec_profile%)$if(%bitrate%, | %bitrate%K)"),
+	bitrate: fb.TitleFormat("$if(%codec_profile%, \267 %codec_profile% \267 %bitrate%, \267 %bitrate%)"),
+	allinfos: fb.TitleFormat((globalProperties.use_ratings_file_tags ? "$meta(rating)" : "%rating%") + " ^^ $if2(%title%,) ^^ $if2(%artist%,) ^^ $if(%album%, - %album%,) ^^ $if2(%date%,?) ^^ %codec% ^^ $if2(%play_count%,0) ^^ $if(%codec_profile%, \267 %codec_profile%)$if(%bitrate%, \267 %bitrate%k)"),
 }
 
 
@@ -558,7 +558,7 @@ function oInfos() {
 		var txt_title = allinfos[1];
 		var txt_info = allinfos[2] + allinfos[3] + (allinfos[4]!='?'?" ("+allinfos[4]+")":"");
 		var _playcount = allinfos[6];
-		if(foo_playcount) var txt_profile = allinfos[5] + allinfos[7] + " | " + _playcount + (_playcount > 1 ? " plays" : " play");
+		if(foo_playcount) var txt_profile = allinfos[5] + allinfos[7] + " \267 " + _playcount + (_playcount == 1 ? " play" : " plays");
 		else var txt_profile = allinfos[5] + allinfos[7];
 		this.show_info = true;
 		this.updateInfos(txt_title, txt_info, txt_profile, this.metadb, false, this.rating);
