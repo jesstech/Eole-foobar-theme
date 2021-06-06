@@ -1857,6 +1857,7 @@ oShowList = function(parentPanelName) {
 
 			this.colorSchemeText = light.normal_txt;
 			this.colorSchemeTextFaded = light.faded_txt;
+			this.colorSchemeTextSuperFaded = light.superfaded_txt;
 			this.rating_icon_on = light.rating_icon_on;
 			this.rating_icon_off = light.rating_icon_off;
 			this.rating_icon_border = light.rating_icon_border;
@@ -1891,6 +1892,7 @@ oShowList = function(parentPanelName) {
 		} else {
 			this.colorSchemeText = dark.normal_txt;
 			this.colorSchemeTextFaded = dark.faded_txt;
+			this.colorSchemeTextSuperFaded = dark.superfaded_txt;
 			this.rating_icon_on = dark.rating_icon_on;
 			this.rating_icon_off = dark.rating_icon_off;
 			this.rating_icon_border = dark.rating_icon_border;
@@ -2424,6 +2426,7 @@ oShowList = function(parentPanelName) {
 						var first_row_font = g_font.italicplus5;
 					}
 
+					// Artist shown below album in album grid, not tracklist
 					if (this.links.artist.state == ButtonStates.hover) {
 						var second_row_color = this.colorSchemeText;
 						var second_row_font = g_font.plus2;

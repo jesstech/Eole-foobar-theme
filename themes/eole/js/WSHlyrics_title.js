@@ -7,8 +7,8 @@ var header_height = 135;
 var ww = 0;
 var wh = 0;
 var lyricsText_Width = -1;
-var esl = new ActiveXObject("ESLyric");
-//esl.SetLyricCallback(lyrics_callback);
+// var esl = new ActiveXObject("ESLyric");
+// esl.SetLyricCallback(lyrics_callback);
 var Update_Required_function= "";
 var btn_initialized = false;
 var images = {};
@@ -116,13 +116,13 @@ function get_colors() {
 	}
 	images.lyrics_off_icon = gdi.Image(theme_img_path + "\\icons\\"+colors.icons_folder+"\\nowplaying_on.png");
 	images.lyrics_off_hover_icon = gdi.Image(theme_img_path + "\\icons\\"+colors.icons_folder+"\\nowplaying_on_hover.png");
-	esl.SetPanelTextNormalColor(colors.normal_txt);
-	esl.SetPanelTextHighlightColor(colors.highlight_txt);
-	esl.SetPanelTextBackgroundColor(colors.normal_bg);
-	if(settings_file_not_found){
-		esl.ShowDesktopLyric = false;
-		esl.DesktopLyricAlwaysOnTop = false;
-	}
+	// esl.SetPanelTextNormalColor(colors.normal_txt);
+	// esl.SetPanelTextHighlightColor(colors.highlight_txt);
+	// esl.SetPanelTextBackgroundColor(colors.normal_bg);
+	// if(settings_file_not_found){
+	// 	esl.ShowDesktopLyric = false;
+	// 	esl.DesktopLyricAlwaysOnTop = false;
+	// }
 };
 function on_mouse_rbtn_up(x, y){
 	var _menu = window.CreatePopupMenu();
@@ -176,7 +176,7 @@ function on_playback_new_track(){
 		//esl.SetPanelBackgroundSource(1);
 		//esl.SetPanelBackgroundPos(3);
 		//esl.SetPanelBackgroundImagePath(globalProperties.default_wallpaper);
-		esl.RunPanelContextMenu("Reload Lyric");
+		// esl.RunPanelContextMenu("Reload Lyric");
 	} else set_update_function("on_playback_new_track()");
 }
 function lyrics_callback(){
