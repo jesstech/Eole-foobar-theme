@@ -683,7 +683,7 @@ function build_buttons(){
 			}
 			g_tooltip.ActivateDelay(get_repeat_tooltip(), g_cursor.x+10, g_cursor.y+20, globalProperties.tooltip_button_delay, 1200, false, 'Repeat');
 		},false,repeat_img,repeat_img_hover),
-		Volume: new SimpleButton(-button_right_m-(button_width+button_padding)*(displayed_button++), buttons_right_top_m, button_width, 32, "Volume", "Volume (click to mute)",false, function () {
+		Volume: new SimpleButton(-button_right_m-(button_width+button_padding)*(displayed_button++), buttons_right_top_m, button_width, 32, "Volume", "",false, function () {
 			g_tooltip.Deactivate();
 			fb.VolumeMute();
 		},false,volume1_img,volume1_img_hover),
@@ -735,7 +735,7 @@ function get_text(metadb) {
 	
 		if(properties.custom_firstRow=="") {
 			var infos = properties.default_firstRow.Eval();
-			infos = infos.split(" ^^ ");
+			infos = infos.replace(/\r?\n/gm, ' ').split(" ^^ ");
 			g_text_title = infos[1];		
 			if(infos[2]) g_text_artist = " -  "+infos[2];
 			if (properties.showTrackPrefix) g_text_title_prefix = infos[0]+".  ";

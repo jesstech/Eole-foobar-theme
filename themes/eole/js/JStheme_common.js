@@ -23,7 +23,7 @@ var last_mouse_move_notified = (new Date).getTime();
 var foo_playcount = utils.CheckComponent("foo_playcount", true);
 var timers = []
 var globalProperties = {
-	theme_version: '1.2.3b23',
+	theme_version: '1.2.3b24',
 	lastest_breaking_version: '1.2.3b20',
     thumbnailWidthMax: window.GetProperty("GLOBAL thumbnail width max", 200),
     coverCacheWidthMax: window.GetProperty("GLOBAL cover cache width max", 400),
@@ -3075,7 +3075,6 @@ const get_albumArt_async = async(metadb, albumIndex, cachekey, need_stub, only_e
 				brw.repaint();
 			}
 		} else if (typeof g_cover == "object") {
-			console.log("fallback")
 			img = get_fallbackCover(metadb,undefined);
 			g_cover.setArtwork(img,true,false,addArgs.isplaying,metadb,cachekey);
 			window.Repaint();
@@ -3601,5 +3600,18 @@ function JSON_stringify(info) {
 	} catch (e) {
 		fb.ShowPopupMessage('Oupppppsssss, it look like an error\n\n'+"JSON_stringify "+info, "Error");
 		console.log(e)
+	}
+}
+function CreatePlaylist(pl_place, pl_name) {
+	try {
+		result = utils.InputBox(window.ID, "Give your playlist a name.", "Create New Playlist", "New Playlist", true);
+		if (result){
+			if (result == "") {
+				plman.CreatePlaylist(pl_place, "New Playlist");
+			} else plman.CreatePlaylist(pl_place, result);
+			//on_playlist_switch();
+			return true;
+		} else return false;
+	} catch(e) {
 	}
 }
